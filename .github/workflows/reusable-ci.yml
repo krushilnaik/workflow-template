@@ -1,0 +1,23 @@
+name: Reusable CI
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: ./.github/actions/setup-node-env@main
+        with:
+          node-version: ${{ inputs.node-version }}
+
+      - name: Run Tests
+        run: npm test
