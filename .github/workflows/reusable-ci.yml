@@ -26,3 +26,5 @@ jobs:
 
       - name: Run Tests
         run: npm test
+        working-directory: ${{ inputs.working-directory }}
+        shell: bash
