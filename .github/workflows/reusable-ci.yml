@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: krushilnaik/workflow-template/setup-node-env@master
+        uses: ./workflow-template/actions/setup-node-env
         with:
           node-version: ${{ inputs.node-version }}
           working-directory: ${{ inputs.working-directory }}
