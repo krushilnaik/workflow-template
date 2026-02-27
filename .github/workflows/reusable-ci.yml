@@ -6,6 +6,10 @@ on:
       node-version:
         required: true
         type: string
+      working-directory:
+        required: false
+        type: string
+        default: "."
 
 jobs:
   build:
@@ -18,6 +22,7 @@ jobs:
         uses: krushilnaik/workflow-template/setup-node-env@master
         with:
           node-version: ${{ inputs.node-version }}
+          working-directory: ${{ inputs.working-directory }}
 
       - name: Run Tests
         run: npm test
